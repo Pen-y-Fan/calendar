@@ -1,0 +1,34 @@
+<IfModule mod_rewrite.c>
+# This is a modified .htaccess file from Laravel with RewriteCond for http to https, useful for Laravel when https has
+# been enabled
+
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    SetEnv HTTP_MOD_REWRITE On
+    RewriteEngine On
+
+    RewriteCond %{HTTPS} !=on
+    # This checks to make sure the connection is not already HTTPS
+
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R=302,L]
+    # This rule will redirect users from their original location, to the same location but using HTTPS.
+    # i.e.  http://www.example.com/foo/ to https://www.example.com/foo/
+    # The leading slash is made optional so that this will work either in
+    # httpd.conf or .htaccess context
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
