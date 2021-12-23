@@ -37,6 +37,7 @@ cd calendar
 composer install
 npm install
 npm run dev
+npm run watch
 ```
 
 ### Create an .env file
@@ -117,7 +118,6 @@ enabled in your `php.ini`. If there are any problems enabling the extension remo
 then to use the database configured in your `.env` file.
 
 ```xml
-
 <server name="DB_CONNECTION" value="sqlite"/>
 <server name="DB_DATABASE" value=":memory:"/>
 ```
