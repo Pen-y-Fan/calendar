@@ -15,4 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('welcome');
+
+
+Route::get('/calendar', function () {
+    return view('calendar');
+});
+
+Route::get('/fullcalendar', function () {
+    return view('fullcalendar');
 });

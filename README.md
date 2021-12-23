@@ -1,7 +1,9 @@
 # Calendar
 
-This is a Laravel Livewire calendar based
-on [asantibanez/livewire-calendar](https://github.com/asantibanez/livewire-calendar)
+This is a project to look at calendars using Laravel Livewire, two are being investigated:
+
+- [asantibanez/livewire-calendar](https://github.com/asantibanez/livewire-calendar)
+- [Laravel Livewire Fullcalendar Integration Tutorial](https://www.nicesnippets.com/blog/laravel-livewire-fullcalendar-integration-tutorial)
 
 This is a Laravel 8 side project to experiment with Livewire 2 calendar options.
 
@@ -118,6 +120,7 @@ enabled in your `php.ini`. If there are any problems enabling the extension remo
 then to use the database configured in your `.env` file.
 
 ```xml
+
 <server name="DB_CONNECTION" value="sqlite"/>
 <server name="DB_DATABASE" value=":memory:"/>
 ```
@@ -145,7 +148,15 @@ See the message under the serve command for the website name and port, by defaul
 
 - <http://127.0.0.1:8000>
 
-**Calendar** will display, with links to the examples from the Livewire site.
+The Calendar welcome page will display, navigate to:
+
+- Livewire calendar [asantibanez/livewire-calendar](https://github.com/asantibanez/livewire-calendar)
+- Full calendar for the Javascript / Livewire hybrid
+  calendar [Laravel Livewire Fullcalendar Integration Tutorial](https://www.nicesnippets.com/blog/laravel-livewire-fullcalendar-integration-tutorial)
+
+Note: The events in the calendar share the same seed data, however the livewire calendar uses the **date** field and the
+full calendar uses the **start** field, so any updates to the date in one will not affect the other, the **title** is
+common to both.
 
 ## Contributing
 
