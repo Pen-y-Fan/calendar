@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Event;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Fullcalendar extends Component
@@ -24,7 +25,8 @@ class Fullcalendar extends Component
     public function addevent($event)
     {
         $input['title'] = $event['title'];
-        $input['start'] = $event['start'];
+        $input['description'] = $event['title'];
+        $input['start'] = Carbon::parse($event['start']);
         Event::create($input);
     }
 
@@ -36,7 +38,7 @@ class Fullcalendar extends Component
     public function eventDrop($event, $oldEvent)
     {
         $eventdata = Event::find($event['id']);
-        $eventdata->start = $event['start'];
+        $eventdata->start = Carbon::parse($event['start']);
         $eventdata->save();
     }
 
