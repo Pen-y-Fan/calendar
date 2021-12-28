@@ -128,10 +128,18 @@ then to use the database configured in your `.env` file.
 ### Run all tests
 
 To make it easy to run all the PHPUnit tests a composer script has been created in composer.json. From the root of the
-projects, use `composer test` or `composer tests`
+projects, use `composer tests`
 
 ```shell script
 composer tests
+```
+
+#### Dusk tests
+
+To run the Dusk tests:
+
+```shell
+php artisan dusk
 ```
 
 ### Serve website
